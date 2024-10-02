@@ -1,0 +1,76 @@
+<?php
+
+namespace ImageSeoWP\Actions\Admin;
+
+if (!defined('ABSPATH')) {
+	exit;
+}
+
+use ImageSeoWP\Helpers\Pages;
+
+class Enqueue
+{
+	public function hooks()
+	{
+		add_action('admin_enqueue_scripts', [$this, 'adminEnqueueScripts']);
+		add_action('admin_enqueue_scripts', [$this, 'adminEnqueueCSS']);
+	}
+
+	/**
+	 * Enqueue admin CSS
+	 *
+	 * @see admin_enqueue_scripts
+	 *
+	 * @param string $page
+	 */
+	public function adminEnqueueCSS($page)
+	{
+		wp_enqueue_style('imageseo-admin-global-css', IMAGESEO_URL_DIST . '/css/admin-global.css', [], IMAGESEO_VERSION);
+	}
+
+	/**
+	 * @see admin_enqueue_scripts
+	 *
+	 * @param string $page
+	 */
+	public function adminEnqueueScripts($page)
+	{
+
+		if ('toplevel_page_imageseo-settings' === $page) {
+			$asset_script_path = IMAGESEO_DIR_DIST . '/settingsv2/index.asset.php';
+			$asset_file = require $asset_script_path;
+			wp_enqueue_media();
+			wp_enqueue_script(
+				'imageseo-v2',
+				IMAGESEO_URL_DIST . '/settingsv2/index.js',
+				$asset_file['dependencies'],
+				$asset_file['version'],
+			);
+			wp_enqueue_style(
+				'imageseo-v2',
+				IMAGESEO_URL_DIST . '/settingsv2/index.css',
+				['wp-components'],
+				$asset_file['version'],
+			);
+		}
+		if (!in_array($page, [
+			'toplevel_page_' . Pages::SETTINGS,
+			'image-seo_page_imageseo-optimization',
+			'upload.php',
+			'post.php',
+			'image-seo_page_imageseo-options', 'image-seo_page_imageseo-settings', 'image-seo_page_imageseo-social-media'
+		], true)) {
+			return;
+		}
+
+		if (in_array($page, ['upload.php'], true)) {
+			wp_enqueue_script('imageseo-admin-js', IMAGESEO_URL_DIST . '/media-upload.js', ['jquery', 'wp-i18n']);
+			wp_add_inline_script('imageseo-admin-js', 'const imageseo_upload_nonce ="' . wp_create_nonce('imageseo_upload_nonce') . '";', 'before');
+		}
+
+		if (in_array($page, ['post.php'], true)) {
+			wp_enqueue_script('imageseo-admin-generate-social-media-js', IMAGESEO_URL_DIST . '/generate-social-media.js', ['jquery'], IMAGESEO_VERSION, true);
+			wp_add_inline_script('imageseo-admin-js', 'const imageseo_ajax_nonce = "' . wp_create_nonce(IMAGESEO_OPTION_GROUP . '-options') . '";', 'before');
+		}
+	}
+}

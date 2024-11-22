@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'imageseo/imageseo-wordpress',
-        'pretty_version' => '3.1.2',
-        'version' => '3.1.2.0',
-        'reference' => '37959f46c31b6d83226ee1ff796b9ff6facf6296',
+        'pretty_version' => 'v3.1.3',
+        'version' => '3.1.3.0',
+        'reference' => 'f99603961710a3a4b4cb7e2b56915f11f583665b',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -31,9 +31,9 @@
             'dev_requirement' => false,
         ),
         'imageseo/imageseo-wordpress' => array(
-            'pretty_version' => '3.1.2',
-            'version' => '3.1.2.0',
-            'reference' => '37959f46c31b6d83226ee1ff796b9ff6facf6296',
+            'pretty_version' => 'v3.1.3',
+            'version' => '3.1.3.0',
+            'reference' => 'f99603961710a3a4b4cb7e2b56915f11f583665b',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

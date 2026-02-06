@@ -2,9 +2,9 @@
 Contributors: wpchill, silkalns
 Tags: seo, ai optimization, optimize images, ranking, social media
 Requires at least: 5.8
-Tested up to: 6.7
+Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 3.2.1
+Stable tag: 3.2.2
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -98,6 +98,10 @@ We are compatible with multiple plugins, including Modula, Featured Images, WooC
 
 Image SEO works in every language.
 
+= Where do I report security bugs found in this plugin? =
+
+Please report security bugs found in the source code of the Optimize images ALT Text (alt tag) & names for SEO using AI plugin through the [Patchstack Vulnerability Disclosure  Program](https://patchstack.com/database/vdp/9e5fb9d2-3cce-4965-ba48-ba154d54c811). The Patchstack team will assist you with verification, CVE assignment, and notify the developers of this plugin."
+
 == Screenshots ==
 
 1. Bulk Optimization Process
@@ -109,6 +113,9 @@ Image SEO works in every language.
 7. Social Cards configuration tab
 
 == Changelog ==
+= 3.2.2 - 09.12.2025 =
+Fixed: Issue preventing settings to be displayed
+
 = 3.2.1 - 18.03.2025 =
 Fixed: Issue with optimization on image upload and gutenberg editor
 

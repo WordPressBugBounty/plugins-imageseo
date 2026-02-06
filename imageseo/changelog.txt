@@ -1,4 +1,7 @@
 == Changelog ==
+= 3.2.2 - 09.12.2025 =
+Fixed: Issue preventing settings to be displayed
+
 = 3.2.1 - 18.03.2025 =
 Fixed: Issue with optimization on image upload and gutenberg editor
 

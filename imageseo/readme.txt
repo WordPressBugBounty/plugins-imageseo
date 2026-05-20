@@ -2,9 +2,9 @@
 Contributors: wpchill, silkalns
 Tags: seo, ai optimization, optimize images, ranking, social media
 Requires at least: 5.8
-Tested up to: 6.9
+Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 3.2.4
+Stable tag: 3.2.5
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -113,6 +113,9 @@ Please report security bugs found in the source code of the Optimize images ALT 
 7. Social Cards configuration tab
 
 == Changelog ==
+= 3.2.5 - 20.05.2026 =
+Changed: Marked compatibility with WordPress 7.0
+
 = 3.2.2 - 09.12.2025 =
 Fixed: Issue preventing settings to be displayed
 
